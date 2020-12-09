@@ -32,4 +32,9 @@ public class Controlador {
 		System.out.println("navegar panel login");
 		this.controladorPanelLogin.mostrarPanelLogin();
 	}
+	public void navegarPanelPeliculas() {
+		System.out.println("navegar panel Peliculas");
+		//this.controladorPanelLogin.mostrarPanelLogin(); 
+		//this.controladorPanelPeliculas.mostrarPanelLogin(); 
+	}
 }

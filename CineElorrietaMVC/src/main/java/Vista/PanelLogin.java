@@ -22,7 +22,7 @@ public class PanelLogin extends JPanel {
 		this.controladorPanelLogin=controladorPanelLogin;
 		setLayout(null);
 		
-		JButton btnEntrar = new JButton("Entrar");
+		 btnEntrar = new JButton("Entrar");
 		btnEntrar.setBounds(165, 192, 63, 23);
 		//btnEntrar.setForeground(Color.WHITE);
 		//btnEntrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -69,16 +69,16 @@ public class PanelLogin extends JPanel {
 	}
 
 	private void initialize() {
-		//this.btnEntrar.addActionListener(listenerBotonLogin(this.controladorPanelLogin));
+		this.btnEntrar.addActionListener(listenerBotonLogin(this.controladorPanelLogin));
 		
 	}
 
-	/*
-	 * private ActionListener listenerBotonLogin(ControladorPanelLogin
-	 * controladorPanelLogin2) { return new ActionListener() { public void
-	 * actionPerformed(ActionEvent arg0) {
-	 * System.out.println("Ejecutando evento Boton Login");
-	 * controladorPanelLogin.accionadoBotonLogin(); } }; }
-	 */
+	
+	  private ActionListener listenerBotonLogin(ControladorPanelLogin
+	  controladorPanelLogin2) { return new ActionListener() { public void
+	  actionPerformed(ActionEvent arg0) {
+	  System.out.println("Ejecutando evento Boton Login");
+	  controladorPanelLogin.accionadoBotonLogin(); } }; }
+	 
 	
 }

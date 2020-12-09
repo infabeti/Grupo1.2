@@ -22,7 +22,7 @@ public class ControladorPanelLogin {
 	}
 
 	public void accionadoBotonLogin() {
-		this.controlador.navegarPanelLogin();
+		this.controlador.navegarPanelGeneros();
 		
 	}
 }
