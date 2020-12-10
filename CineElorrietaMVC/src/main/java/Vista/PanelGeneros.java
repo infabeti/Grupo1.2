@@ -50,10 +50,10 @@ public class PanelGeneros extends JPanel {
 	
 	private void initializeEvents() {
 		this.btnVolver.addActionListener(listenerBotonVolver(this.controladorPanelGeneros));
-		this.btnDrama.addActionListener(listenerBotonVolver(this.controladorPanelGeneros));
-		this.btnTerror.addActionListener(listenerBotonVolver(this.controladorPanelGeneros));
-		this.btnComedia.addActionListener(listenerBotonVolver(this.controladorPanelGeneros));
-		this.btnCienciaFiccion.addActionListener(listenerBotonVolver(this.controladorPanelGeneros));
+		this.btnDrama.addActionListener(listenerBotonDrama(this.controladorPanelGeneros));
+		this.btnTerror.addActionListener(listenerBotonTerror(this.controladorPanelGeneros));
+		this.btnComedia.addActionListener(listenerBotonComedia(this.controladorPanelGeneros));
+		this.btnCienciaFiccion.addActionListener(listenerBotonCienciaFiccion(this.controladorPanelGeneros));
 	}
 	
 	private ActionListener listenerBotonVolver(ControladorPanelGeneros controladorPanelGeneros) {
@@ -72,5 +72,28 @@ public class PanelGeneros extends JPanel {
 			}
 		};
 	}
-	
+	private ActionListener listenerBotonTerror(ControladorPanelGeneros controladorPanelGeneros) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton Terror");
+				controladorPanelGeneros.accionadoBotonTerror();
+			}
+		};
+	}
+	private ActionListener listenerBotonComedia(ControladorPanelGeneros controladorPanelGeneros) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton Comedia");
+				controladorPanelGeneros.accionadoBotonComedia();
+			}
+		};
+	}
+	private ActionListener listenerBotonCienciaFiccion(ControladorPanelGeneros controladorPanelGeneros) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton Ciencia Ficcion");
+				controladorPanelGeneros.accionadoBotonCienciaFiccion();
+			}
+		};
+	}
 }

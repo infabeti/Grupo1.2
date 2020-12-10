@@ -29,4 +29,13 @@ public class ControladorPanelGeneros {
 	public void accionadoBotonDrama() {
 		this.controlador.navegarPanelPeliculas();
 	}
+	public void accionadoBotonTerror() {
+		this.controlador.navegarPanelPeliculas();
+	}
+	public void accionadoBotonComedia() {
+		this.controlador.navegarPanelPeliculas();
+	}
+	public void accionadoBotonCienciaFiccion() {
+		this.controlador.navegarPanelPeliculas();
+	}
 }
