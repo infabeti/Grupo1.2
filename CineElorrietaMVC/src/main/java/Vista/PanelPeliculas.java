@@ -3,57 +3,87 @@ package Vista;
 import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import Controlador.ControladorPanelGeneros;
 import Controlador.ControladorPanelPeliculas;
-
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import java.awt.BorderLayout;
-import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.FlowLayout;
 import javax.swing.BoxLayout;
 import java.awt.CardLayout;
 import javax.swing.JTextArea;
-import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
-
 import java.awt.SystemColor;
 import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import javax.swing.DropMode;
+import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.border.SoftBevelBorder;
 
 public class PanelPeliculas extends JPanel{
-
+	private JComboBox cmbxOpc;
+	private JLabel lblOpc;
+	private JTextArea txtAPelis;
+	private JButton btnAtras;
+	//private JButton btnAceptar;
+	
 	private ControladorPanelPeliculas controladorPanelPeliculas;
 	public PanelPeliculas(ControladorPanelPeliculas controladorPanelPeliculas) {
 		this.controladorPanelPeliculas=controladorPanelPeliculas;
-		setBackground(new Color(255, 228, 181));
+		setBorder(new SoftBevelBorder(BevelBorder.LOWERED, Color.CYAN, new Color(0, 255, 255), Color.CYAN, Color.CYAN));
 		setLayout(null);
+		setBounds(150, 150, 530, 505);
+
+		lblOpc = new JLabel("Elige una opcion:");
+		txtAPelis = new JTextArea();
+		btnAtras = new JButton("<--");
+		//btnAceptar = new JButton("-->");
+		cmbxOpc = new JComboBox();
 		
-		JTextArea JTPelis = new JTextArea();
-		JTPelis.setEditable(false);
-		JTPelis.setBounds(205, 11, 235, 261);
-		add(JTPelis);
+		txtAPelis = ControladorPanelPeliculas.cargarPelis(txtAPelis);
+		cmbxOpc = ControladorPanelPeliculas.llenarCmbxOpc2(cmbxOpc);
+
+		cmbxOpc.setBounds(255, 68, 117, 22);
+		add(cmbxOpc);
+
+		lblOpc.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblOpc.setBounds(111, 68, 134, 22);
+		add(lblOpc);
+
+		txtAPelis.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		txtAPelis.setBounds(46, 133, 431, 248);
+		txtAPelis.setEditable(false);
+		add(txtAPelis);
+
+		btnAtras.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnAtras.setBounds(134, 410, 99, 29);
+		add(btnAtras);
 		
-		JLabel lblNewLabel = new JLabel("PELICULAS");
-		lblNewLabel.setFont(new Font("Stencil", Font.PLAIN, 18));
-		lblNewLabel.setBounds(40, 25, 121, 64);
-		add(lblNewLabel);
+		JButton btnAceptar = new JButton("-->");
+		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnAceptar.setBounds(277, 410, 99, 29);
+		add(btnAceptar);
 		
-		JLabel lblSelecionadas = new JLabel("SELECIONADAS");
-		lblSelecionadas.setFont(new Font("Stencil", Font.PLAIN, 18));
-		lblSelecionadas.setBounds(29, 66, 155, 64);
-		add(lblSelecionadas);
+		
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ControladorPanelPeliculas.seleccionarPeli((int)cmbxOpc.getSelectedItem());
+				controladorPanelPeliculas.accionadoBotonMostrarPanelGeneros(); //ALBERTO, HAZ UN CAMBIO DE VENTANA PARA QUE VUELVA DE PELICULAS A GÉNEROS Y LUEGO BORRA ÉSTE COMENTARIO xD
+			}
+		});
+	
+	btnAceptar.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent arg0) {
+			ControladorPanelPeliculas.seleccionarPeli((int)cmbxOpc.getSelectedItem());
+			controladorPanelPeliculas.accionadoBotonMostrarPanelResumen(); //ALBERTO, HAZ UN CAMBIO DE VENTANA PARA QUE VAYA DE PELICULAS A RESUMEN Y LUEGO BORRA ÉSTE COMENTARIO xD
+		}
+	});
 	}
 }

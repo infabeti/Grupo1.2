@@ -1,20 +1,29 @@
 package Vista;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-
+import javax.swing.border.BevelBorder;
+import javax.swing.border.SoftBevelBorder;
 import Controlador.ControladorPanelLogin;
 
+
 public class PanelLogin extends JPanel {
-	private JPasswordField passwordField;
-	private JButton btnEntrar;
-	private JTextField textField;
+	private JTextField txtFUser;
+	private JLabel lblDia;
+	private JLabel lblUser;
+	private JLabel lblContr;
+	private JButton btnAceptar, btnEntrar;
+	private JComboBox cmbXDia;
+	private JPasswordField pswFContraseña;
 	private ControladorPanelLogin controladorPanelLogin;
 
 	public PanelLogin(ControladorPanelLogin controladorPanelLogin) {
@@ -22,50 +31,60 @@ public class PanelLogin extends JPanel {
 		this.controladorPanelLogin=controladorPanelLogin;
 		setLayout(null);
 		
-		 btnEntrar = new JButton("Entrar");
+		btnEntrar = new JButton("Entrar");
 		btnEntrar.setBounds(165, 192, 63, 23);
-		//btnEntrar.setForeground(Color.WHITE);
-		//btnEntrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnEntrar.setBorderPainted(false);
-		//btnEntrar.setBorder(new LineBorder(new Color(0, 0, 0)));
-		//btnEntrar.setBackground(new Color(255, 140, 0));
-		add(btnEntrar);
+		setBorder(new SoftBevelBorder(BevelBorder.LOWERED, Color.CYAN, new Color(0, 255, 255), Color.CYAN, Color.CYAN));
+		setBounds(150, 150, 530, 505);
+		setLayout(null);
 		
-		JLabel lblUsuario = new JLabel("Usuario:");
-		lblUsuario.setBounds(114, 116, 40, 14);
-		//lblUsuario.setForeground(Color.BLACK);
-		//lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		add(lblUsuario);
+		txtFUser = new JTextField();
+		lblDia = new JLabel("D\u00EDa:");
+		lblUser = new JLabel("Usuario:");
+		lblContr = new JLabel("Contrase\u00F1a:");
+		btnAceptar = new JButton("-->");
+		cmbXDia = new JComboBox();
+		pswFContraseña = new JPasswordField();
 		
-		JLabel lblContrasea = new JLabel("Contrase\u00F1a:");
-		lblContrasea.setBounds(103, 154, 60, 14);
-		//lblContrasea.setForeground(Color.BLACK);
-		//lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		//lblContrasea.setBackground(Color.BLACK);
-		add(lblContrasea);
+		lblUser.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblUser.setBounds(60, 142, 83, 29);
+		add(lblUser);
 		
-		JLabel lblNewLabel = new JLabel("Inicia Sesi\u00F3n");
-		lblNewLabel.setBounds(165, 64, 59, 14);
-		lblNewLabel.setToolTipText("");
-		lblNewLabel.setOpaque(true);
-		//lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		//lblNewLabel.setForeground(Color.WHITE);
-		//lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		//lblNewLabel.setBackground(new Color(255, 140, 0));
-		add(lblNewLabel);
+		lblContr.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblContr.setBounds(60, 218, 95, 29);
+		add(lblContr);
 		
-		passwordField = new JPasswordField();
-		//passwordField.setBorder(new LineBorder(new Color(255, 140, 0), 1, true));
-		passwordField.setBounds(183, 148, 93, 20);
-		add(passwordField);
+		txtFUser.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtFUser.setBounds(176, 142, 192, 24);
+		add(txtFUser);
+		txtFUser.setColumns(10);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		//textField.setBorder(new LineBorder(new Color(255, 140, 0), 1, true));
-		textField.setBounds(183, 113, 86, 20);
-		add(textField);
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if (ControladorPanelLogin.comprobarLogIn(txtFUser.getText(), pswFContraseña.getText())) {
+					ControladorPanelLogin.recogerDia((String)cmbXDia.getSelectedItem());
+					controladorPanelLogin.accionadoBotonLogin();
+				}
+				else {
+					System.out.println("Algo va mal");
+				}
+					
+			}
+		});
+		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnAceptar.setBounds(210, 417, 89, 29);
+		add(btnAceptar);
 		
-		initialize();
+		lblDia.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblDia.setBounds(119, 306, 95, 29);
+		add(lblDia);
+		
+		cmbXDia.setBounds(224, 306, 130, 28);
+		cmbXDia.addItem("Sabado");
+		cmbXDia.addItem("Domingo");
+		add(cmbXDia);
+		
+		pswFContraseña.setBounds(176, 223, 192, 24);
+		add(pswFContraseña);
 	}
 
 	private void initialize() {
