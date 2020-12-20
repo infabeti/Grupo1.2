@@ -11,6 +11,7 @@ public class Controlador {
 	private ControladorPanelGeneros controladorPanelGeneros;
 	private ControladorPanelLogin controladorPanelLogin;
 	private ControladorPanelPeliculas controladorPanelPeliculas;
+	private ControladorPanelResumen controladorPanelResumen;
 	public Controlador(Modelo modelo, Vista vista) {
 		this.modelo = modelo;
 		this.vista = vista;
@@ -18,6 +19,7 @@ public class Controlador {
 		this.controladorPanelGeneros = new ControladorPanelGeneros(this.modelo, this.vista, this);
 		this.controladorPanelLogin = new ControladorPanelLogin(this.modelo, this.vista, this);
 		this.controladorPanelPeliculas = new ControladorPanelPeliculas(this.modelo, this.vista, this);
+		this.controladorPanelResumen = new ControladorPanelResumen(this.modelo, this.vista, this);
 		this.navegarPanelBienvenida();
 	}
 	
@@ -37,6 +39,12 @@ public class Controlador {
 	public void navegarPanelPeliculas() {
 		System.out.println("navegar panel Peliculas");
 		this.controladorPanelPeliculas.mostrarPanelPeliculas(); 
+		 
+	}
+	
+	public void navegarPanelResumen() {
+		System.out.println("navegar panel Resumen");
+		this.controladorPanelResumen.mostrarPanelResumen(); 
 		 
 	}
 }
