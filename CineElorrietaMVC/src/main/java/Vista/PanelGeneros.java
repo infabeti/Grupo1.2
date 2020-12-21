@@ -37,7 +37,8 @@ public class PanelGeneros extends JPanel {
 	private JButton btnAceptar;
 	private JTextArea txtASeleccionadas;
 	private JTextArea txtAGeneros;
-	
+	//private JTextArea txtPelis;
+
 	public PanelGeneros(ControladorPanelGeneros controladorPanelGeneros){
 		this.controladorPanelGeneros = controladorPanelGeneros;
 		setLayout(null);
@@ -53,7 +54,8 @@ public class PanelGeneros extends JPanel {
 			txtASeleccionadas = new JTextArea();
 			txtAGeneros = new JTextArea();
 			txtAGeneros = ControladorPanelGeneros.llenarGeneros(txtAGeneros);
-			txtASeleccionadas = ControladorPanelPeliculas.sacarPelis(txtASeleccionadas);
+			JTextArea txtPelis = new JTextArea();
+			txtPelis = ControladorPanelPeliculas.sacarPelis(txtPelis);
 			cmbxOpc = ControladorPanelPeliculas.llenarCmbxOpc1(cmbxOpc, txtAGeneros);
 			ShrsSabado = ControladorPanelPeliculas.calcularHorasSabado();
 			ShrsDomingo = ControladorPanelPeliculas.calcularHorasDomingo();
@@ -67,9 +69,9 @@ public class PanelGeneros extends JPanel {
 			add(btnAtras);
 			btnAceptar.setBounds(325, 421, 89, 29);
 			add(btnAceptar);
-			txtASeleccionadas.setBounds(257, 158, 230, 139);
-			txtASeleccionadas.setEditable(false);
-			add(txtASeleccionadas);
+//			txtASeleccionadas.setBounds(257, 158, 230, 139);
+//			txtASeleccionadas.setEditable(false);
+//			add(txtASeleccionadas);
 			lblHrsSabado.setBounds(257, 315, 230, 22);
 			lblHrsSabado.setText(ShrsSabado);
 			add(lblHrsSabado);
@@ -85,6 +87,13 @@ public class PanelGeneros extends JPanel {
 			txtAGeneros.setBounds(48, 158, 171, 225);
 			txtAGeneros.setEditable(false);
 			add(txtAGeneros);
+			
+		
+			txtPelis.setBounds(288, 145, 158, 157);
+			add(txtPelis);
+			txtPelis.append(txtPelis.getText()+ControladorPanelPeliculas.nombrePeliSeleccionada+"\n");
+	
+			
 			btnAtras.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					controladorPanelGeneros.accionadoBotonVolverLogin();
@@ -95,4 +104,5 @@ public class PanelGeneros extends JPanel {
 					controladorPanelGeneros.accionadoBottonMostrarPanelPelis(); 
 					
 				}});		
-		}}
+		}	
+}

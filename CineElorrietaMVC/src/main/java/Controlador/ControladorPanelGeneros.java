@@ -112,6 +112,5 @@ public class ControladorPanelGeneros {
 	}
 	public void accionadoBotonVolverLogin() {
 		this.controlador.navegarPanelLogin();
-		
-	}	
+	}
 }

@@ -10,10 +10,12 @@ public class ControladorPanelPeliculas {
 	private Vista vista;
 	private Controlador controlador;
 	private PanelPeliculas panelPeliculas;
+	private static PanelGeneros panelGeneros;
 	public static ArrayList<Pelicula> peliculasSabado, peliculasDomingo;
 	private static int opcGen;
 	public static ArrayList<String> generosRestantesSabado, generosRestantesDomingo;
 	private static Calendar tiempoRestantesSabado, tiempoRestantesDomingo;
+	public static String nombrePeliSeleccionada = "";
 	
 	public ControladorPanelPeliculas(Modelo modelo, Vista vista, Controlador controlador) {
 		this.modelo = modelo;
@@ -215,7 +217,7 @@ public class ControladorPanelPeliculas {
 			System.exit(0);
 		}
 		String genero = "";
-		String nombrePeliSeleccionada = "";
+		//String nombrePeliSeleccionada = "";
 		Pelicula peliculasGenero[] = new Pelicula[4];
 		int cont = 0;
 		int hrsPeli = 0;
@@ -301,4 +303,7 @@ public class ControladorPanelPeliculas {
 	public void accionadoBotonMostrarPanelResumen() {
 		this.controlador.navegarPanelResumen();
 	}
+	
+	
+	
 }
