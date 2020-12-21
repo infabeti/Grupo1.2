@@ -68,8 +68,17 @@ public class PanelResumen extends JPanel{
 	
 	private void initializeEvents() {
 		this.btnGeneros.addActionListener(listenerBotonGeneros(this.controladorPanelResumen));
+		this.btnSalir.addActionListener(listenerBotonSalir(this.controladorPanelResumen));
 	}
 	
+	private ActionListener listenerBotonSalir(ControladorPanelResumen controladorPanelResumen2) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controladorPanelResumen.accionadoBotonSalir();
+			}
+		};
+	}
+
 	private ActionListener listenerBotonGeneros(ControladorPanelResumen controladorPanelResumen) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

@@ -87,11 +87,12 @@ public class PanelGeneros extends JPanel {
 			add(txtAGeneros);
 			btnAtras.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					//CambiosDeVentana.cambioALogin(); //ALBERTO, HAZ QUE CON ÉSTE BOTÓN VUELVA DE GÉNEROS A LOGIN
+					controladorPanelGeneros.accionadoBotonVolverLogin();
 				}});
 			btnAceptar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					ControladorPanelPeliculas.pasarOpc1((int)cmbxOpc.getSelectedItem());
-					controladorPanelGeneros.accionadoBottonMostrarPanelPelis();  //ALBERTO, HAZ QUE CON ÉSTE BOTÓN PASE DE GÉNEROS A PELICULAS
+					controladorPanelGeneros.accionadoBottonMostrarPanelPelis(); 
+					
 				}});		
 		}}
