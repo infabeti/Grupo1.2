@@ -20,7 +20,7 @@ public class ControladorPanelGeneros {
 		this.vista.mostrarPanel(this.panelGeneros);
 	}
 	public void accionadoBottonVolverPanelGeneros() {
-		this.controlador.navegarPanelBienvenida();
+		this.controlador.navegarPanelGeneros();
 	}
 	public void accionadoBotonDrama() {
 		this.controlador.navegarPanelPeliculas();
@@ -109,5 +109,9 @@ public class ControladorPanelGeneros {
 }
 	public void accionadoBottonMostrarPanelPelis() {
 		this.controlador.navegarPanelPeliculas();
+	}
+	public void accionadoBotonVolverLogin() {
+		this.controlador.navegarPanelLogin();
+		
 	}	
 }

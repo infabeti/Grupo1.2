@@ -52,6 +52,12 @@ public class ControladorPanelResumen {
 		this.controlador.navegarPanelGeneros();
 		
 	}
+
+
+	public void accionadoBotonSalir() {
+		this.controlador.navegarPanelBienvenida();
+		
+	}
 	
 //	public static JTextArea llenarResumen(JTextArea txtAResumen) {
 //		int hrs = 0;

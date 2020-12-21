@@ -75,14 +75,14 @@ public class PanelPeliculas extends JPanel{
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ControladorPanelPeliculas.seleccionarPeli((int)cmbxOpc.getSelectedItem());
-				controladorPanelPeliculas.accionadoBotonMostrarPanelGeneros(); //ALBERTO, HAZ UN CAMBIO DE VENTANA PARA QUE VUELVA DE PELICULAS A GÉNEROS Y LUEGO BORRA ÉSTE COMENTARIO xD
+				controladorPanelPeliculas.accionadoBotonMostrarPanelGeneros(); 
 			}
 		});
 	
 	btnAceptar.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent arg0) {
 			ControladorPanelPeliculas.seleccionarPeli((int)cmbxOpc.getSelectedItem());
-			controladorPanelPeliculas.accionadoBotonMostrarPanelResumen(); //ALBERTO, HAZ UN CAMBIO DE VENTANA PARA QUE VAYA DE PELICULAS A RESUMEN Y LUEGO BORRA ÉSTE COMENTARIO xD
+			controladorPanelPeliculas.accionadoBotonMostrarPanelResumen(); 
 		}
 	});
 	}
