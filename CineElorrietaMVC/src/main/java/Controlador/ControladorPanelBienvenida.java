@@ -26,4 +26,9 @@ public class ControladorPanelBienvenida {
 	public void accionadoBottonMostrarPanelGeneros() {
 		this.controlador.navegarPanelGeneros();
 	}
+
+	public void accionadoBottonMostrarLogin() {
+		this.controlador.navegarPanelLogin();
+		
+	}
 }
